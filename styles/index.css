@@ -1,23 +1,113 @@
-/* button{
-    background-color: whitesmoke;
-    padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+body, html, main{
+    font-family: "Motiva Sans", Sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    /* background: linear-gradient(to bottom, #1b2431 23%, #000000 100%); */
 }
-.jokes{
-    border: solid 1px;
-    width: 50%;
-    text-align: center;
-    font-size: 30px;
-    line-height: 2;
-    padding: 20px;
+body{
+    background-image: url('/images/1544dota.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
-.container{
+.header-container{
+    background-image: url("/images/the_international_2015_dota_2_teams_by_jaredftw-d91tm7h.png");
+    height: 36vh;
+    width: 80%;
+    margin: 0 auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.navigation{    
+    background-color: rgba(77, 89, 129, 0.8);
+    color: rgba(26, 40, 58, 1);
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 8px 0px 8px 0px;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+ul{
+    font-family: 'Calibri';
+    padding: 0;
+    color: #d9dadd;
+}
+li:hover{
+    cursor: pointer;
+    color: #373f70;
+    background-color: whitesmoke;
+}
+li{
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 5px;
+    margin-right: 15px;
+}
+ul a{
+    color: #d9dadd;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search input[type=text]{
+    outline: none;
+    font-size: 1.5em;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.nav img{
+    width: 16px;
+    padding: 3px;
+    border: solid 1px #999;
+    border-left: none;
+}
+.nav{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.body-container{
+    color: white;
+}
+table{
+    margin: 0 auto;
+    font-size: 1.3em;
+}
+td{
+    padding: 1em;
+}
+.th{
+    font-size: 1.5em;
+    color: #78869e;
+}
+.table-wrapper p{
+    text-align: center;
+}
+.player-table{
+    background-color: rgba(42, 42, 40, 0.5);
+    border-radius: 1em;
+    box-sizing: content-box;
+}
+.player-content{
+    height: 60vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent;
+}
+.player-table img{
+    width: 20px;
+}
+.news-wrapper{
     height: 50vh;
-    flex-direction: column;
-    border: solid 1px;
-    padding: 100px;
-} */
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 80%;
+}

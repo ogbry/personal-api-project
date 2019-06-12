@@ -1,33 +1,70 @@
 $(document).ready(function(){
-    
+
    
         
-        // getData('https://api.opendota.com/api/proPlayers')
-        // .then(function(players) {
-        //     console.log(players)
-            
-        //    players.forEach(element => {
-        //         let val = $(
+        getData('https://api.opendota.com/api/proPlayers')
+        .then(function(players) {
+            console.log(players)
+           players.forEach(element => {
+                let countryCode = element.loccountrycode;
+                let teamName = element.team_name;
+                let role = element.fantasy_role;
+                if(countryCode == null){
+                    countryCode = `--`;
+                }
+                else{
+                    countryCode = `<img src="images/1x1/${countryCode}.svg" alt="">`;
+                }
+                if(teamName == null){
+                    teamName = ''
+                }
+                if(role == 0){
+                    role = 'Coach'
+                }
+                else if(role == 1){
+                    role = 'Mid'
+                }
+                else if(role == 2){
+                    role = 'Hard Carry'
+                }
+                else if(role == 3){
+                    role = 'Offlaner'
+                }
+                else if(role == 4){
+                    role = 'Roam Support'
+                }
+                else if(role == 5){
+                    role = 'Full Support'
+                }
+               
+                let val = $(
                     
-        //             `   
-        //                 <p>${element.account_id}</p>
-        //                 <img src="${element.avatar}" alt="">
-        //                 <p>${element.name}</p>
-        //                 <p>${element.fantasy_role}</p>
-        //                 <p>${element.personaname}</p>
-        //                 <p>${element.is_pro}</p>
-        //                 <hr>
-        //             `
-                    
-        //         )
+                    `   
+                        <tr class="table-wrapper">
+                            <td>${countryCode}</td>
+                            <td><img src=${element.avatar} alt=""> &nbsp;${element.name}</td>
+                            <td>${element.personaname}</td>
+                            <td>${teamName}</td>
+                            <td>${role}</td>
+                            <td>
 
-        //         $('.jokes').prepend(val);
-        //    });
-            
-                      
-        // });
+                            <p><a href="${element.profileurl}"><img src="images/steam.png" alt=""></a></p>
+                            
+                            
+                            </td>
+                            
+                        </tr>
+
+                    `
+                    
+                )
+                    
+                $('.player-table').append(val);
+           });
+                     
+        });
         
-    //   });
+      });
 
 
 
@@ -51,29 +88,6 @@ $(document).ready(function(){
     //         });
             
     //     })
-
-    getData('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
-        .then(function(cards) {
-            console.log(cards)
-                
-        });
-
-        getData('https://deckofcardsapi.com/api/deck/new/draw/?count=2')
-        .then(function(draw){
-            console.log(draw)
-            let val = $(
-                    `
-                        <p>${draw.success}</p>
-                        
-                        <hr>
-                    `
-
-                )
-                $('.jokes').prepend(val);
-        })
-
-
-})
 
 
 
