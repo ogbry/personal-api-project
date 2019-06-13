@@ -1,14 +1,12 @@
 $(document).ready(function(){
 
-   
-        
         getData('https://api.opendota.com/api/proPlayers')
         .then(function(players) {
-            console.log(players)
            players.forEach(element => {
                 let countryCode = element.loccountrycode;
                 let teamName = element.team_name;
                 let role = element.fantasy_role;
+                
                 if(countryCode == null){
                     countryCode = `--`;
                 }
@@ -66,33 +64,59 @@ $(document).ready(function(){
         
       });
 
-
-
-    // //   getData('http://api.icndb.com/jokes/')
-    // //     .then(function(response){
-    // //         let jokesArr = response.value;
-            
-
-    //         jokesArr.forEach(element => {
-
-    //             let val = $(
-    //                 `
-    //                     <p>${element.joke}</p>
-    //                     <hr>
-    //                 `
-
-    //             )
-
-    //             $('.jokes').prepend(val);
+      
+      getData('https://api.opendota.com/api/proMatches')
+      .then(function(matches){
+       
+        matches.forEach(element => {
+            // let matchWinner = element.
+            let league = $(
+               `
+               <div class="match-title">
+                    <h1>${element.league_name}</h1>
+                    <p>Match ID: ${element.match_id}</p>
+                    
+                    
+                <div class="match-teams">
+                    
+                    <div class="teams">${element.radiant_name}</div>
+                    <div class="teams">${element.dire_name}</div>
+                </div>
+                <button>Match Details</button>
                 
-    //         });
+                </div>
+               `
+            )
             
-    //     })
+                
 
 
+            $('.match-wrapper').append(league);
+
+        });
+      })
+
+      window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+        }
+
+        
+        function topFunction() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+        }
 
 
-
+      getData('https://api.opendota.com/api/teams')
+      .then(function(teams){
+        console.log(teams)
+      })
 
 
 function getData(url){

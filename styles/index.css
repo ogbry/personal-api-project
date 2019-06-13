@@ -3,12 +3,16 @@ body, html, main{
     padding: 0;
     margin: 0;
     font-size: 10px;
+    height: 100%;
     /* background: linear-gradient(to bottom, #1b2431 23%, #000000 100%); */
 }
 body{
     background-image: url('/images/1544dota.jpg');
     background-size: 100%;
+    background-position: left top;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    
 }
 .header-container{
     background-image: url("/images/the_international_2015_dota_2_teams_by_jaredftw-d91tm7h.png");
@@ -17,6 +21,17 @@ body{
     margin: 0 auto;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    opacity: .8;
+
+}
+.header-logo{
+    background-color: rgba(235, 236, 242, 0.3);
+    background: rgba(235, 236, 242, 0.3);
+    color: rgba(235, 236, 242, 0.3);
+}
+.header-logo img{
+    height: 120px;
+    width: 100%;
 }
 .navigation{    
     background-color: rgba(77, 89, 129, 0.8);
@@ -27,8 +42,28 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 8px 0px 8px 0px;
-    margin-bottom: 1em;
     text-transform: uppercase;
+    position: sticky;
+    top: 0;
+}
+.left-fixed{
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 0 auto;
+}
+.tab-label{
+    background-color: rgba(40, 44, 55, 1);
+    background: rgba(40, 44, 55, 1);
+    color: rgba(40, 44, 55, 1);
+    padding: 10px;
+    margin-bottom: 1em;
+    margin: 0;
+    font-family: Calibri;
+    font-size: 2.3em;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    
 }
 ul{
     font-family: 'Calibri';
@@ -58,13 +93,10 @@ ul a{
     outline: none;
     font-size: 1.5em;
     font-family: 'Times New Roman', Times, serif;
-
-}
-.nav img{
-    width: 16px;
-    padding: 3px;
-    border: solid 1px #999;
-    border-left: none;
+    padding: 5px;
+}   
+.nav button{
+    padding: 5px;
 }
 .nav{
     margin-left: 10px;
@@ -82,7 +114,7 @@ td{
 }
 .th{
     font-size: 1.5em;
-    color: #78869e;
+    color: #5c7bad;;
 }
 .table-wrapper p{
     text-align: center;
@@ -93,7 +125,7 @@ td{
     box-sizing: content-box;
 }
 .player-content{
-    height: 60vh;
+    
     overflow: scroll;
     overflow-x: hidden;
     margin: 0 auto;
@@ -106,8 +138,153 @@ td{
     width: 20px;
 }
 .news-wrapper{
-    height: 50vh;
     background-repeat: no-repeat;
     margin: 0 auto;
     width: 80%;
+}
+.matches-content{
+    
+    margin: 0 auto;
+    height: 60vh;
+}
+.match-wrapper{
+    background-color: rgba(42, 42, 40, 0.5);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+}
+.match-title{
+    border: solid 1px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    -moz-box-shadow: 8px 13px 11px #141414;
+    -webkit-box-shadow: 8px 13px 11px #141414;
+    box-shadow: 8px 13px 11px #141414;
+    border-radius: 5px;
+}
+.match-title h1, .match-title p{
+    text-shadow:5px 5px 5px #000000;
+    color: #5c7bad;
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 0px;
+    letter-spacing: 3px;
+    font-size: 2.2em;
+}
+.match-title p{
+    font-size: 1.6em;
+}
+.match-teams{
+    background-image: url("/images/rad.png");
+    background-size: 100%;
+    padding: 100px 0px 100px 0px;
+    background-repeat: no-repeat;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2em;
+    border: solid 1px;
+    margin: 0 auto;
+}
+.teams{
+    width: 200px;
+    text-align: center;
+    word-wrap: break-word;
+    color: white;
+}
+.match-title button{
+    border: none;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-family: Calibri;
+    background-color: #5c7bad;
+    color: white;
+}
+#myBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    background-color: #5c7bad; 
+    color: white; 
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 10px; 
+    font-size: 18px; 
+  }
+  #myBtn:hover {
+    background-color: #555; 
+  }
+  #myBtn img{
+      width: 20px;
+  }
+.news-container{
+      display: flex;
+      width: 80%;
+      margin: 0 auto;
+}
+.text-wrapper{
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+.text-wrapper em{
+    font-size: 1.5em;
+    color: white;
+    padding: 20px;
+    opacity: .5;
+}
+
+.pro-teams{
+    width: 80%;
+    margin: 0 auto;
+    border: solid 1px;
+}
+.match-history{
+    background-color: rgba(32, 53, 65, 0.9);
+    background: rgba(32, 53, 65, 0.9);
+    font-family: 'Calibri';
+    letter-spacing: 3px;
+    margin: 10px 0px 10px 0px;
+    width: 30%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+.match-history em{
+    font-size: 1.3rem;
+}
+.match-history p {
+    margin: 0;
+}
+.team-win{
+    font-size: 2em;
+}
+.team-history{
+    display: flex;
+    font-size: 1.5em;
+}
+.box{
+    margin: 0 auto;
+}
+.team-score{
+    font-size: 1.7em;
+}
+.radiant{
+    color: green;
+}
+.dire{
+    color: red;
 }

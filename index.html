@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>PERSONAL API PROJECT</title>
     <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.js"></script>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/slideshow.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bowlby+One+SC">
+    <link rel="shortcut icon" href="images/steam.png" />
+    <link href="https://fonts.googleapis.com/css?family=Bitter|VT323&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <main class="backgorund">
 
         <div class="header-container">
-
+            <div class="header-logo">
+                <img src="images/valve.png" alt="">
+            </div>
         </div>
         <div class="navigation">
             <div class="nav list">
@@ -23,28 +28,69 @@
                     <a href="index.html"><li>News</li></a>
                     <a href="players.html"><li>Pro-Players</li></a>    
                     <a href="matches.html"><li>Pro-Matches</li></a>
-                    <a href="teams.html"><li>Teams</li></a>
-                    <a href="tournaments.html"><li>Tournaments</li></a>
+                    <a href="teams.html" class="selected"><li>Teams</li></a>
+                    <a href="tournaments.html" class="selected"><li>Tournaments</li></a>
+                    
                 </ul>
             </div>
             <div class="nav search">
                 <input type="text" placeholder="Search">
-                <a href="#"><img src="images/magni.png" alt=""></a>
+                <button>Search</button>
             </div>
         </div>
         <div class="body-container news">
-            <div class="news-wrapper">
-                <video controls playsinline="" loop="" autoplay="">
-                <source src="images/movie480.webm" type="video/webm" autostart="true">
+            <div class='news-container'>
+                    <div class="news-wrapper">
+                            <video controls playsinline="" loop="" autoplay="">
+                            <source src="images/movie480.webm" type="video/webm" autostart="true">
+                        </div>
+
+
+                        <div class="slideshow-container">
+
+
+                                <div class="mySlides fade">
+                                  <div class="numbertext">1 / 4</div>
+                                  <img src="images/OG-dota.jpg" style="width:100%">
+                                  <div class="text">'OG win The International 8 and the biggest prize in esports.'</div>
+                                </div>
+                              
+                                <div class="mySlides fade">
+                                  <div class="numbertext">2 / 4</div>
+                                  <img src="images/ana-mvp.jpg" style="width:100%">
+                                  <div class="text">"Ana is our MVP of The International 8!"</div>
+                                </div>
+                              
+                                <div class="mySlides fade">
+                                  <div class="numbertext">3 / 4</div>
+                                  <img src="images/Secret-ESL-Hamburg.jpg" style="width:100%">
+                                  <div class="text">"Team Secret rose from the lower bracket to claim victory in an epic five-game finale."</div>
+                                </div>
+
+                                <div class="mySlides fade">
+                                  <div class="numbertext">4 / 4</div>
+                                  <img src="images/c7de548afdb7d26f2a11e6bd8cabd864_big_cover.jpeg" style="width:100%">
+                                  <div class="text">"The International Battle Pass is here!!"   </div>
+                                </div>
+
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                              </div>
+                              <br>
+
+                            
             </div>
         </div>
         
 
 
         <!-- <div class="body-container matches">
-           
-        </div>
-        <div class="body-container teams">
+            <div class="matches-content">
+                
+            </div>
+        </div> -->
+
+        <!-- <div class="body-container teams">
             <div class="team-content">
                 
             </div>
@@ -57,5 +103,6 @@
 
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/slideshow.js"></script>
 </body>
 </html>
