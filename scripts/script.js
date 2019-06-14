@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+   
+
         getData('https://api.opendota.com/api/proPlayers')
         .then(function(players) {
            players.forEach(element => {
@@ -38,7 +40,7 @@ $(document).ready(function(){
                 let val = $(
                     
                     `   
-                        <tr class="table-wrapper">
+                        <tr class="table-wrapper" style="color: white">
                             <td>${countryCode}</td>
                             <td><img src=${element.avatar} alt=""> &nbsp;${element.name}</td>
                             <td>${element.personaname}</td>
@@ -69,7 +71,14 @@ $(document).ready(function(){
       .then(function(matches){
        
         matches.forEach(element => {
-            // let matchWinner = element.
+            let matchWinner = element.radiant_win;
+            if(matchWinner = true){
+                matchWinner = element.radiant_name;
+            }
+            else{
+                matchWinner = element.dire;
+            }
+
             let league = $(
                `
                <div class="match-title">
@@ -82,18 +91,62 @@ $(document).ready(function(){
                     <div class="teams">${element.radiant_name}</div>
                     <div class="teams">${element.dire_name}</div>
                 </div>
-                <button>Match Details</button>
+                <button class="btn-toggle-${element.match_id}" >Match Details</button>
                 
                 </div>
+
                `
             )
-            
+            let winner = $(
+
+                `
+                <div class="match-history-${element.match_id} box-history" style="display: none">
+                <div class="team-win">
+                    <p>${matchWinner} Victory!</p>
+                    <em>Match ID: ${element.match_id}</em>
+                </div>
+                <div class="team-history">
+                    <div class="radiant-team box">
+                        <div class="team-score radiant">
+                            <p>${element.radiant_score}</p>
+                        </div>
+                        <div class="radiant team-name">
+                            ${element.radiant_name}
+                        </div>
+                    </div>
+                    <div class="dire-team box">
+                        <div class="team-score dire">
+                            <p>${element.dire_score}</p>
+                        </div>
+                        <div class="dire team-name">
+                            ${element.dire_name}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                `
+            )
                 
 
-
+                
             $('.match-wrapper').append(league);
+            $('.match-wrapper').append(winner);
 
+            $(document).mouseup(function(e){
+                var container = $(`.match-history-${element.match_id}`);
+            
+                if(!container.is(e.target) && container.has(e.target).length === 0){
+                    container.hide();
+                }
+            });
+
+            $(`.btn-toggle-${element.match_id}`).click(function(){
+                $(`.match-history-${element.match_id}`).toggle();
+            })  
+            
         });
+
+
       })
 
       window.onscroll = function() {scrollFunction()};
@@ -115,7 +168,74 @@ $(document).ready(function(){
 
       getData('https://api.opendota.com/api/teams')
       .then(function(teams){
-        console.log(teams)
+        
+
+        teams.forEach(element => {
+
+            let logo = element.logo_url;
+            if(logo == null){
+                logo = 'images/No_Logo_Available.png';
+            }
+            else{
+                logo = element.logo_url;
+            }
+            if(name == null){
+                name = 'Unknown';
+            }
+            else{
+                name = element.name;
+            }
+
+            let value = $(
+                
+                `
+                <tr style="color: white">
+                    <th rowspan="3"><img id="row-logo" src="${logo}" alt=""> ${name}</th>
+                    <td>Team Rating: ${element.rating}</td>
+                </tr>
+                
+                <tr style="color: white">
+                    <td>Wins: ${element.wins}</td>
+                </tr>
+                <tr style="color: white">
+                    <td>Losses: ${element.losses}</td>
+                </tr>
+                
+                `
+
+            )
+
+                $('.teams-table').append(value);
+
+        });
+
+
+        $('.btn-random').click(function() {
+
+            $('.game-output').empty();
+            var randomTeam = teams[Math.floor(Math.random()*teams.length)];
+
+            let noLogo = randomTeam.logo_url;
+            if(noLogo == null){
+                noLogo = 'images/No_Logo_Available.png';
+            }
+            else{
+                noLogo = randomTeam.logo_url;
+            }
+
+            let teamValue = $(
+                `
+                    <img src="${noLogo}" alt="">
+                    <h1>${randomTeam.name}</h1>
+
+                `
+            )
+
+            $('.game-output').append(teamValue);
+
+          });
+
+
       })
 
 

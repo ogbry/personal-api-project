@@ -63,7 +63,6 @@ body{
     font-size: 2.3em;
     letter-spacing: 2px;
     color: whitesmoke;
-    
 }
 ul{
     font-family: 'Calibri';
@@ -97,13 +96,11 @@ ul a{
 }   
 .nav button{
     padding: 5px;
+    font-family: Calibri;
 }
 .nav{
     margin-left: 10px;
     margin-right: 10px;
-}
-.body-container{
-    color: white;
 }
 table{
     margin: 0 auto;
@@ -253,24 +250,31 @@ td{
     margin: 0 auto;
     border: solid 1px;
 }
-.match-history{
-    background-color: rgba(32, 53, 65, 0.9);
-    background: rgba(32, 53, 65, 0.9);
+.box-history{
+    border: solid 1px;
+    background-color: rgba(15, 18, 18, 0.9);
+    background: rgba(15, 18, 18, 0.9);
     font-family: 'Calibri';
     letter-spacing: 3px;
-    margin: 10px 0px 10px 0px;
     width: 30%;
-    padding: 10px 20px 10px 20px;
+    padding: 50px;
     border-radius: 10px;
+    position: fixed;
+    top: 35%;
 }
-.match-history em{
-    font-size: 1.3rem;
+.box-history em{
+    font-size: 1.5rem;
 }
-.match-history p {
-    margin: 0;
+.box-history p {
+    margin: 20px 0px 10px 0px;
 }
 .team-win{
     font-size: 2em;
+    color: grey;
+}
+.team-win p{
+    font-size: 2em;
+    color: grey;
 }
 .team-history{
     display: flex;
@@ -288,3 +292,89 @@ td{
 .dire{
     color: red;
 }
+.pro-teams{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.teams-content{
+    width: 49%;
+    max-height: 50vh;
+    background-color: rgba(42, 42, 40, 0.5);
+    position: relative;
+    font-family: Calibri;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+.table-scroll{
+    overflow: auto;
+    height: 50vh;
+}
+.teams-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.team-game{
+    width: 49%;
+    border: solid 1px;
+    max-height: 50vh;
+    background-color: rgba(42, 42, 40, 0.5);
+    display: flex;
+}
+#row-logo{
+    width: 60px;    
+}
+th{
+    background-color: rgba(201, 219, 220, 0.2);
+    font-family: 'Chivo', sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 5px;
+    color: #969ca5;
+    
+}
+.box-center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    font-family: 'Calibri';
+}
+.box-center div{
+    padding: 2em;
+}
+.game-input label{
+    margin: 10px;
+    color: white;
+    font-size: 1.3em;
+}
+.game-header h1{
+    color: #969ca5;
+    font-size: 2.3em;
+}
+.game-input select{
+    background-color: #5c7bad; 
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1.7em;
+}
+.box-center button{
+    padding: 5px 15px 5px 15px;
+    font-size: 1em;
+}
+.game-output{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game-output img{
+    width: 100px;
+}
+.game-output h1{
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    text-shadow:7px 4px 5px #000000;
+    color: white;
+}
+
