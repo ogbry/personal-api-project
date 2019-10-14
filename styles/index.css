@@ -1,0 +1,33 @@
+body{
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin: 0 auto;
+    overflow: hidden;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 20px;
+}
+.hero-box{
+    border: solid 1px;
+    width: 100px;
+    padding: 5;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+    /* background-color: #999; */
+}
+#search-input{
+    font-size: 25px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
