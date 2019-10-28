@@ -30,4 +30,12 @@ body{
     justify-content: center;
     align-items: center;
     height: 5vh;
+    margin-top: 15px;
+}
+.box a{
+    color: black;
+    text-decoration: none;
+}
+.modal{
+    height: 30vh;
 }
