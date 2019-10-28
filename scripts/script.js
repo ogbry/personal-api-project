@@ -12,13 +12,15 @@ getData('https://api.opendota.com/api/search')
 getData('https://api.opendota.com/api/heroStats')
 .then(function(heroes){
     heroes.forEach(hero => {
-            
+            console.log(hero.roles)
             var appendHere = document.querySelector('.box')
             var heroBox = document.createElement('a')
             var p = document.createElement('p')
             heroBox.setAttribute('class', 'hero-box')
             heroBox.setAttribute('rel' , "modal:open")
             heroBox.setAttribute('href' , "#ex1")
+            heroBox.setAttribute('data-roles', `${hero.roles}`)
+            heroBox.setAttribute('id' , `${hero.localized_name}`)
             heroBox.setAttribute('data-id', `${hero.name}`)
             var icon = document.createElement('IMG')
             var img = document.createElement('IMG')
@@ -47,19 +49,20 @@ getData('https://api.opendota.com/api/heroStats')
         modalDiv.setAttribute('class', 'modal')
         appendModal.appendChild(modalDiv)
         var p = document.createElement('p')
+        var span = document.createElement('span')
         var img = document.createElement('IMG')
-        p.innerText += $(this).data('id').split('').slice(14).join('').toUpperCase().replace('_', ' ')
+        p.innerText += this.id
+        span.innerText += $(this).data('roles')
         var imgUrl = $(this).data('id').split('').slice(14).join('')
         
         img.setAttribute("src", `https://api.opendota.com/apps/dota2/images/heroes/${imgUrl}_full.png?`)
         modalDiv.appendChild(p)
         modalDiv.appendChild(img)
-
+        modalDiv.append(span)
     })
 
     console.log(heroes)
 })
-
 
     function getData(url){
         return fetch(url)
@@ -69,3 +72,5 @@ getData('https://api.opendota.com/api/heroStats')
     }
 
 })
+
+

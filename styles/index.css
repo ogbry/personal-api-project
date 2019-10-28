@@ -39,3 +39,9 @@ body{
 .modal img{
     width: 250px;
 }
+#ex1{
+    display: flex !important;
+    flex-direction: column;
+    background-color: red;
+    justify-content: center;
+}
