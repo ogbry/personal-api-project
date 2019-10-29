@@ -22,6 +22,7 @@ getData('https://api.opendota.com/api/heroStats')
             heroBox.setAttribute('class', 'hero-box')
             heroBox.setAttribute('rel' , "modal:open")
             heroBox.setAttribute('href' , "#ex1")
+            heroBox.setAttribute('data-attr' , `${hero.primary_attr}`)
             heroBox.setAttribute('data-roles', `${hero.roles}`)
             heroBox.setAttribute('id' , `${hero.localized_name}`)
             heroBox.setAttribute('data-id', `${hero.name}`)
@@ -83,14 +84,21 @@ getData('https://api.opendota.com/api/heroStats')
     })
 
     var searchInput = document.querySelector('.search')
-    
     searchInput.addEventListener('keyup', function(){
         value = searchInput.value.toLowerCase()
 
         $(`.hero-box`).filter(function(){
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
           })
+    })
 
+    //primary_attr
+    var selectInput = document.querySelector('.menu')
+    selectInput.addEventListener('change', function(){
+        value = selectInput.value
+        $(`.hero-box`).filter(function(){
+            $(this).toggle($(this).data('attr').toLowerCase().indexOf(value) > -1);
+          })
     })
 
 })

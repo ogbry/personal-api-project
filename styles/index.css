@@ -34,8 +34,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5vh;
     margin-top: 15px;
+    flex-direction: column;
+}
+.header select{
+    margin-top: 10px;
 }
 .box a{
     color: black;
