@@ -1,18 +1,21 @@
+window.onload = function(){
 $(document).ready(function(){
-var header = document.querySelector('.header')
 
-getData('https://api.opendota.com/api/search')
-.then(function(search){
-    var input = document.createElement('input')
-    input.setAttribute('id', "search-input")
-    input.setAttribute('placeholder', "Hero name...")
-    header.prepend(input)
-})
+
+// getData('https://api.opendota.com/api/heroStats')
+// .then(function(data){
+//     var searchInput = document.querySelector('.search')
+//     console.log(searchInput.value)
+//     data.forEach(element => {
+//         console.log(element.localized_name)
+//     })
+
+// })
+
 
 getData('https://api.opendota.com/api/heroStats')
 .then(function(heroes){
     heroes.forEach(hero => {
-            console.log(hero.roles)
             var appendHere = document.querySelector('.box')
             var heroBox = document.createElement('a')
             var p = document.createElement('p')
@@ -47,21 +50,49 @@ getData('https://api.opendota.com/api/heroStats')
         var modalDiv = document.createElement('div')
         modalDiv.setAttribute('id', "ex1");
         modalDiv.setAttribute('class', 'modal')
+        
+        var subCont = document.createElement('div')
+        subCont.setAttribute('class', 'sub-container')
+        modalDiv.appendChild(subCont)
+
+        var headerDiv = document.createElement('div')
+        headerDiv.setAttribute('class', 'headerDiv')
+        subCont.prepend(headerDiv)
+
+        var imgDiv = document.createElement('div')
+        imgDiv.setAttribute('class', 'imgDiv')
+        subCont.append(imgDiv)
+
+        var roleDiv = document.createElement('div')
+        roleDiv.setAttribute('class', 'roleDiv')
+        subCont.append(roleDiv)
+
         appendModal.appendChild(modalDiv)
-        var p = document.createElement('p')
+        var headerspan = document.createElement('span')
         var span = document.createElement('span')
         var img = document.createElement('IMG')
-        p.innerText += this.id
-        span.innerText += $(this).data('roles')
+        headerspan.innerText += this.id
+
+        span.innerText += $(this).data('roles').replace(/(,)+/g,' | ')
         var imgUrl = $(this).data('id').split('').slice(14).join('')
         
         img.setAttribute("src", `https://api.opendota.com/apps/dota2/images/heroes/${imgUrl}_full.png?`)
-        modalDiv.appendChild(p)
-        modalDiv.appendChild(img)
-        modalDiv.append(span)
+        headerDiv.appendChild(headerspan)
+        imgDiv.appendChild(img)
+        roleDiv.appendChild(span)
     })
 
-    console.log(heroes)
+    var searchInput = document.querySelector('.search')
+    
+    searchInput.addEventListener('keyup', function(){
+        value = searchInput.value.toLowerCase()
+
+        $(`.hero-box`).filter(function(){
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          })
+
+    })
+
 })
 
     function getData(url){
@@ -72,5 +103,4 @@ getData('https://api.opendota.com/api/heroStats')
     }
 
 })
-
-
+}

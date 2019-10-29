@@ -20,7 +20,6 @@ body{
     text-align: center;
     margin: 20px;
     cursor: pointer;
-    /* background-color: #999; */
 }
 #search-input{
     font-size: 25px;
@@ -37,11 +36,37 @@ body{
     text-decoration: none;
 }
 .modal img{
-    width: 250px;
+    width: 400px;
 }
-#ex1{
-    display: flex !important;
-    flex-direction: column;
-    background-color: red;
+@media only screen and (max-width: 490px) {
+    .modal img {
+      width: 200px;
+    }
+}
+@media only screen and (max-width: 268px) {
+    .modal img {
+      width: 100px;
+    }
+}
+@media only screen and (max-width: 162px) {
+    .modal img {
+      width: 50px;
+    }
+}
+.sub-container{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.headerDiv{
+    align-self: baseline;
+}
+.headerDiv{
+    font-size: 2.5vh;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+.search{
+    font-size: 25px;
 }
