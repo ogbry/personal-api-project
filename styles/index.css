@@ -21,6 +21,12 @@ body{
     margin: 20px;
     cursor: pointer;
 }
+.hero-box:hover{
+    background-color: lightsalmon;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
 #search-input{
     font-size: 25px;
 }
